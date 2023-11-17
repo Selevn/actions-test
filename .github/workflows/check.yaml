@@ -14,14 +14,14 @@ jobs:
     needs: [init]
     strategy:
       matrix:
-        version: [14,16,16]
+        version: [14, 16, 18]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-            node-version: ${{matrix.version}}
+            node-version: ${{ matrix.version }}
       - name: Install deps
         run: npm ci
       - name: Test
